@@ -30,14 +30,14 @@ class TestCalc:
         result = self.calc.add(a, b)
         assert round(result, 2) == expect
 
-    @pytest.mark.parametrize('a,b,expect', [
-        [0.1, 0, True], [10, 0, True]]
+    @pytest.mark.parametrize('a,b', [
+        [0.1, 0], [10, 0]]
                              )
-    def test_div(self, a, b, expect):
+    def test_div(self, a, b):
         with pytest.raises(ZeroDivisionError):
-            self.calc.add(a, b)
+            self.calc.div(a, b)
 
-    # # # 处理除数为0的情况 ，此处只能捕获除数为0的情况，如果除数非0，则会抛错
+    # # # 处理除数为0的情况 ，pytest.raises(ZeroDivisionError)此处只能捕获ZeroDivisionError(除数为0的情况)，如果除数非0，则会抛错
     # # def test_div_zero(self):
     #     with pytest.raises(ZeroDivisionError):
     #         result = self.cacl.div(1, 0)
