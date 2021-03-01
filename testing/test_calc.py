@@ -33,7 +33,7 @@ class TestCalc:
     @pytest.mark.parametrize('a,b', [
         [0.1, 0], [10, 0]]
                              )
-    def test_div(self, a, b):
+    def test_div_zero(self, a, b):
         with pytest.raises(ZeroDivisionError):
             self.calc.div(a, b)
 
